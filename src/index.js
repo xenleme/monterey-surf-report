@@ -1,3 +1,10 @@
-import greeting from './hello';
+import getSpots from './requests';
 
-console.log(greeting);
+const spotsEl = document.querySelector('#spots');
+
+const addSpots = async () => {
+  const spots = await getSpots();
+  spotsEl.textContent = spots.join(', ');
+};
+
+addSpots();
