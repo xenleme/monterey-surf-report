@@ -1,18 +1,19 @@
 import { getSpots, getSpotForecast } from './requests';
 import Chart from 'chart.js';
 
-const spotsEl = document.querySelector('#spots');
-const spotNameEl = document.querySelector('#spot-name');
-const spotEl = document.querySelector('#spot');
+const availableSpots = document.querySelector('#available-spots');
 
 const addSpots = async () => {
   const spots = await getSpots();
-  spotsEl.textContent = spots.join(', ');
+  availableSpots.textContent = spots.join(', ');
 };
 
 const addSpotForecast = async spotId => {
   const spotForecast = await getSpotForecast(spotId);
   const spotName = spotForecast[0].spot_name;
+
+  const spotsEl = document.querySelector('#spots');
+  const spotNameEl = document.createElement('h3');
   spotNameEl.textContent = spotName;
 
   const waveObj = {
@@ -54,7 +55,8 @@ const addSpotForecast = async spotId => {
     }
   });
 
-  spotEl.appendChild(ctxWave);
+  spotsEl.appendChild(spotNameEl);
+  spotsEl.appendChild(ctxWave);
 };
 
 addSpots();
