@@ -3,6 +3,7 @@ import Chart from 'chart.js';
 
 const spotsEl = document.querySelector('#spots');
 const spotNameEl = document.querySelector('#spot-name');
+const spotEl = document.querySelector('#spot');
 
 const addSpots = async () => {
   const spots = await getSpots();
@@ -24,7 +25,7 @@ const addSpotForecast = async spotId => {
     waveObj.yValues.push(parseFloat(spotForecast[i].size_ft.toFixed(2)));
   }
 
-  const ctxWave = document.querySelector('#waveHeightChart');
+  const ctxWave = document.createElement('canvas');
 
   const waveHeightChart = new Chart(ctxWave, {
     type: 'bar',
@@ -52,7 +53,11 @@ const addSpotForecast = async spotId => {
       }
     }
   });
+
+  spotEl.appendChild(ctxWave);
 };
 
 addSpots();
 addSpotForecast(161);
+addSpotForecast(154);
+addSpotForecast(152);
