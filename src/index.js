@@ -1,10 +1,16 @@
-import { getSpots, getSpotForecast } from './requests';
+import { getSpots, getSpotForecast, getWaterTemp } from './requests';
 import Chart from 'chart.js';
 
 const addSpots = async () => {
   const spots = await getSpots();
   const availableSpots = document.querySelector('#available-spots');
   availableSpots.textContent = spots.join(', ');
+};
+
+const addWaterTemp = async () => {
+  const waterTemp = await getWaterTemp();
+  const waterTempEl = document.querySelector('#water-temp');
+  waterTempEl.textContent = `Water temperature: ${waterTemp.fahrenheit}°F / ${waterTemp.celcius}°C`;
 };
 
 const addSpotForecast = async spotId => {
@@ -64,6 +70,7 @@ const createWaveHeightChart = (spotForecast, spotNameEl) => {
 };
 
 addSpots();
+addWaterTemp();
 addSpotForecast(161);
 addSpotForecast(154);
 addSpotForecast(152);

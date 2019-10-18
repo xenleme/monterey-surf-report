@@ -22,4 +22,16 @@ const getSpotForecast = async spotId => {
   }
 };
 
-export { getSpots, getSpotForecast };
+const getWaterTemp = async () => {
+  const waterTempURL = `http://api.spitcast.com/api/county/water-temperature/monterey/`;
+  const response = await fetch(waterTempURL);
+
+  if (response.status === 200) {
+    const data = await response.json();
+    return data;
+  } else {
+    throw new Error('Unable to get water temperature.');
+  }
+};
+
+export { getSpots, getSpotForecast, getWaterTemp };
