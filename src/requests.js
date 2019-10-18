@@ -23,7 +23,8 @@ const getSpotForecast = async spotId => {
 };
 
 const getWaterTemp = async () => {
-  const waterTempURL = `http://api.spitcast.com/api/county/water-temperature/monterey/`;
+  const waterTempURL =
+    'http://api.spitcast.com/api/county/water-temperature/monterey/';
   const response = await fetch(waterTempURL);
 
   if (response.status === 200) {
@@ -34,4 +35,16 @@ const getWaterTemp = async () => {
   }
 };
 
-export { getSpots, getSpotForecast, getWaterTemp };
+const getWindSpeed = async () => {
+  const windШndicatorsURL = 'http://api.spitcast.com/api/county/wind/monterey/';
+  const response = await fetch(windШndicatorsURL);
+
+  if (response.status === 200) {
+    const data = await response.json();
+    return data;
+  } else {
+    throw new Error('Unable to get wind speed.');
+  }
+};
+
+export { getSpots, getSpotForecast, getWaterTemp, getWindSpeed };
