@@ -20,10 +20,11 @@ const addWaterTemp = async () => {
 
 const addWindSpeed = async () => {
   const windSpeed = await getWindSpeed();
+  const windSpeedEl = document.querySelector('#wind-speed');
   const windSpeedMph = windSpeed.map(item => Math.round(item.speed_mph));
   const sum = windSpeedMph.reduce((previous, current) => (current += previous));
   const avgWindSpeedMph = sum / windSpeedMph.length;
-  console.log(avgWindSpeedMph);
+  windSpeedEl.textContent = `${avgWindSpeedMph} mph`;
 };
 
 const addSpotForecast = async spotId => {
