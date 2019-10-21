@@ -10,7 +10,9 @@ const createWindSpeedChart = windSpeed => {
 
   for (let i = 0; i < windSpeed.length - 1; i++) {
     windSpeedObj.xLabels.push(windSpeed[i].hour);
-    windSpeedObj.yValues.push(`${Math.round(windSpeed[i].speed_mph)}`);
+    windSpeedObj.yValues.push(
+      `${parseFloat(windSpeed[i].speed_mph.toFixed(1))}`
+    );
   }
 
   const ctxWindSpeed = document.createElement('canvas');

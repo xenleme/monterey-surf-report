@@ -30,7 +30,7 @@ const addWindSpeed = async () => {
 
   windSpeedEl.textContent = `Wind speed at ${
     currentWindSpeed.hour
-  }: ${Math.round(currentWindSpeed.speed_mph)} mph from ${
+  }: ${parseFloat(currentWindSpeed.speed_mph.toFixed(1))} mph from ${
     currentWindSpeed.direction_text
   }`;
 
