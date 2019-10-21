@@ -18,13 +18,20 @@ const addWaterTemp = async () => {
   waterTempEl.textContent = `Water temperature: ${waterTemp.fahrenheit}°F / ${waterTemp.celcius}°C. Recommended ${waterTemp.wetsuit}.`;
 };
 
-const addWindSpeed = async () => {
+const addCurrentWindSpeed = async () => {
   const windSpeed = await getWindSpeed();
   const windSpeedEl = document.querySelector('#wind-speed');
-  const windSpeedMph = windSpeed.map(item => item.speed_mph);
-  const sum = windSpeedMph.reduce((previous, current) => (current += previous));
-  const avgWindSpeedMph = Math.round(sum / windSpeedMph.length);
-  windSpeedEl.textContent = `Wind speed: ${avgWindSpeedMph} mph`;
+
+  const currentHour = new Date().getHours();
+  const currentWindSpeed = windSpeed.find(item => {
+    return item.hour.replace(/[A-Z]/gi, '') === currentHour.toString();
+  });
+
+  windSpeedEl.textContent = `Wind speed at ${
+    currentWindSpeed.hour
+  }: ${Math.round(currentWindSpeed.speed_mph)} mph from ${
+    currentWindSpeed.direction_text
+  }`;
 };
 
 const addSpotForecast = async spotId => {
@@ -85,7 +92,7 @@ const createWaveHeightChart = (spotForecast, spotNameEl) => {
 
 addSpots();
 addWaterTemp();
-addWindSpeed();
+addCurrentWindSpeed();
 addSpotForecast(161);
 addSpotForecast(154);
 addSpotForecast(152);
