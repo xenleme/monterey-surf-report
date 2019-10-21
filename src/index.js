@@ -56,8 +56,11 @@ const addSpotForecast = async spotId => {
   const spotForecast = await getSpotForecast(spotId);
   const spotName = spotForecast[0].spot_name;
   const spotNameEl = document.createElement('h3');
+  const currentDate = spotForecast[0].date;
+  const currentDateEl = document.querySelector('#current-date');
 
   spotNameEl.textContent = spotName;
+  currentDateEl.textContent = currentDate;
 
   createWaveHeightChart(spotForecast, spotNameEl);
 };
