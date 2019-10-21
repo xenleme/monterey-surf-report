@@ -37,6 +37,21 @@ const addWindSpeed = async () => {
   createWindSpeedChart(windSpeed);
 };
 
+const toggleWindSpeedChart = () => {
+  const windSpeedChart = document.querySelector('#wind-speed-chart');
+
+  if (windSpeedChart.style.display === 'none') {
+    windSpeedChart.style.display = 'block';
+    toggleBtn.textContent = 'Hide wind speed chart';
+  } else {
+    windSpeedChart.style.display = 'none';
+    toggleBtn.textContent = 'Show wind speed chart';
+  }
+};
+
+const toggleBtn = document.getElementById('toggle-wind-speed-chart');
+toggleBtn.addEventListener('click', toggleWindSpeedChart);
+
 const addSpotForecast = async spotId => {
   const spotForecast = await getSpotForecast(spotId);
   const spotName = spotForecast[0].spot_name;
