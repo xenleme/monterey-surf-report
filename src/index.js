@@ -4,7 +4,8 @@ import {
   getWaterTemp,
   getWindSpeed
 } from './requests';
-import Chart from 'chart.js';
+
+import { createWindSpeedChart, createWaveHeightChart } from './charts';
 
 const addSpots = async () => {
   const spots = await getSpots();
@@ -18,7 +19,7 @@ const addWaterTemp = async () => {
   waterTempEl.textContent = `Water temperature: ${waterTemp.fahrenheit}°F / ${waterTemp.celcius}°C. Recommended ${waterTemp.wetsuit}.`;
 };
 
-const addCurrentWindSpeed = async () => {
+const addWindSpeed = async () => {
   const windSpeed = await getWindSpeed();
   const windSpeedEl = document.querySelector('#wind-speed');
 
@@ -32,6 +33,8 @@ const addCurrentWindSpeed = async () => {
   }: ${Math.round(currentWindSpeed.speed_mph)} mph from ${
     currentWindSpeed.direction_text
   }`;
+
+  createWindSpeedChart(windSpeed);
 };
 
 const addSpotForecast = async spotId => {
@@ -44,55 +47,9 @@ const addSpotForecast = async spotId => {
   createWaveHeightChart(spotForecast, spotNameEl);
 };
 
-const createWaveHeightChart = (spotForecast, spotNameEl) => {
-  const spotsEl = document.querySelector('#spots');
-
-  const waveObj = {
-    xLabels: [],
-    yValues: []
-  };
-
-  for (let i = 0; i < spotForecast.length - 1; i++) {
-    waveObj.xLabels.push(spotForecast[i].hour);
-    waveObj.yValues.push(parseFloat(spotForecast[i].size_ft.toFixed(2)));
-  }
-
-  const ctxWave = document.createElement('canvas');
-
-  const waveHeightChart = new Chart(ctxWave, {
-    type: 'bar',
-    data: {
-      labels: waveObj.xLabels,
-      datasets: [
-        {
-          label: 'Wave Height (ft)',
-          data: waveObj.yValues,
-          backgroundColor: 'rgba(21, 44, 66, 0.89)',
-          borderColor: 'rgba(216, 219, 222, 0.89)',
-          borderWidth: 1
-        }
-      ]
-    },
-    options: {
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true
-            }
-          }
-        ]
-      }
-    }
-  });
-
-  spotsEl.appendChild(spotNameEl);
-  spotsEl.appendChild(ctxWave);
-};
-
 addSpots();
 addWaterTemp();
-addCurrentWindSpeed();
+addWindSpeed();
 addSpotForecast(161);
 addSpotForecast(154);
 addSpotForecast(152);
