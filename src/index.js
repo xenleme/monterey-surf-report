@@ -15,7 +15,7 @@ const addSpots = async () => {
 const addWaterTemp = async () => {
   const waterTemp = await getWaterTemp();
   const waterTempEl = document.querySelector('#water-temp');
-  waterTempEl.textContent = `Water temperature: ${waterTemp.fahrenheit}°F / ${waterTemp.celcius}°C`;
+  waterTempEl.textContent = `Water temperature: ${waterTemp.fahrenheit}°F / ${waterTemp.celcius}°C. Recommended ${waterTemp.wetsuit}.`;
 };
 
 const addWindSpeed = async () => {
