@@ -6,6 +6,7 @@ import {
 } from './requests';
 
 import { createWindSpeedChart, createWaveHeightChart } from './charts';
+import { getAMPMHours } from './utilities';
 
 const addSpots = async () => {
   const spots = await getSpots();
@@ -23,9 +24,9 @@ const addWindSpeed = async () => {
   const windSpeed = await getWindSpeed();
   const windSpeedEl = document.querySelector('#wind-speed');
 
-  const currentHour = new Date().getHours();
+  const currentHour = getAMPMHours(new Date());
   const currentWindSpeed = windSpeed.find(item => {
-    return item.hour.replace(/[A-Z]/gi, '') === currentHour.toString();
+    return parseInt(item.hour.replace(/[A-Z]/gi, '')) === currentHour;
   });
 
   windSpeedEl.textContent = `Wind speed at ${
