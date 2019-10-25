@@ -1,17 +1,23 @@
 .widget {
-  background-color: rgba(255, 255, 255, .8);
+  display: inline-block;
+  background-color: $widget-bg-color;
   font-size: 1.5rem;
   padding: 1.4rem 1.8rem;
-  border-top: 4px solid rgba(28, 28, 28, .8);
+  border-top: 4px solid $widget-border-top-color;
   border-radius: 2px;
+  box-shadow: 1px 1px 4px $widget-shadow-color;
 }
 
 .available-spots {
-  display: inline-block;
-
   &__title {
     display: inline-block;
     font-size: 1.2rem;
     margin-bottom: .35rem;
+  }
+}
+
+.water-temp {
+  &__highlight {
+    color: $water-temp-highlight-color;
   }
 }
