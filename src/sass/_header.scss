@@ -1,0 +1,10 @@
+.header {
+  padding: 2rem 3rem;
+
+  &__date {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: $header-date-text-color;
+    margin-top: .4rem;
+  }
+}
