@@ -7,6 +7,7 @@ import {
 
 import { createWindSpeedChart, createWaveHeightChart } from './charts';
 import { getAMPMHours } from './utilities';
+import '../sass/styles.scss';
 
 const addSpots = async () => {
   const spots = await getSpots();
