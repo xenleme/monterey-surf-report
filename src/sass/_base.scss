@@ -17,7 +17,8 @@ html {
 }
 
 body {
-  background-image: url(../img/primary-bg.jpg);
+  background-color: $body-bg-color;
+  background-image: $body-bg-image;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -26,8 +27,14 @@ body {
 
 // COMMON STYLES
 .container {
-  max-width: 113rem;
+  max-width: 122rem;
   margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
 }
 
 .heading-primary {
