@@ -25,6 +25,11 @@ body {
 }
 
 // COMMON STYLES
+.container {
+  max-width: 113rem;
+  margin: 0 auto;
+}
+
 .heading-primary {
   font-size: 3rem;
 }

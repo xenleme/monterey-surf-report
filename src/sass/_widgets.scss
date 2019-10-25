@@ -1,0 +1,17 @@
+.widget {
+  background-color: rgba(255, 255, 255, .8);
+  font-size: 1.5rem;
+  padding: 1.4rem 1.8rem;
+  border-top: 4px solid rgba(28, 28, 28, .8);
+  border-radius: 2px;
+}
+
+.available-spots {
+  display: inline-block;
+
+  &__title {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-bottom: .35rem;
+  }
+}

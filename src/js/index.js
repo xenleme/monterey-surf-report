@@ -11,8 +11,8 @@ import '../sass/styles.scss';
 
 const addSpots = async () => {
   const spots = await getSpots();
-  const availableSpots = document.querySelector('#available-spots');
-  availableSpots.textContent = spots.join(', ');
+  const availableSpotsText = document.querySelector('.available-spots__text');
+  availableSpotsText.textContent = spots.join(' · ');
 };
 
 const addWaterTemp = async () => {
