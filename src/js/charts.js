@@ -68,6 +68,7 @@ const createWaveHeightChart = (spotForecast, spotNameEl) => {
   }
 
   const ctxWave = document.createElement('canvas');
+  ctxWave.className += 'chart';
 
   const waveHeightChart = new Chart(ctxWave, {
     type: 'bar',
