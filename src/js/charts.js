@@ -78,7 +78,8 @@ const createWaveHeightChart = (spotForecast, spotNameEl) => {
         {
           label: 'Wave Height (ft)',
           data: waveObj.yValues,
-          backgroundColor: 'rgba(21, 44, 66, 0.89)',
+          backgroundColor: 'rgba(28, 84, 138, .7)',
+          hoverBackgroundColor: 'rgba(28, 84, 138, .9)',
           borderColor: 'rgba(216, 219, 222, 0.89)',
           borderWidth: 1
         }
