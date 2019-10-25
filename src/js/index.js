@@ -17,24 +17,26 @@ const addSpots = async () => {
 
 const addWaterTemp = async () => {
   const waterTemp = await getWaterTemp();
-  const waterTempEl = document.querySelector('.water-temp-text');
+  const waterTempEl = document.querySelector('.water-temp__text');
   waterTempEl.innerHTML = `Water temperature: <b class="water-temp__highlight">${waterTemp.fahrenheit}°F / ${waterTemp.celcius}°C</b> <br>Recommended <b class="water-temp__highlight">${waterTemp.wetsuit}</b>`;
 };
 
 const addWindSpeed = async () => {
   const windSpeed = await getWindSpeed();
-  const windSpeedEl = document.querySelector('#wind-speed');
+  const windSpeedEl = document.querySelector('.wind-speed__text');
 
   const currentHour = getAMPMHours(new Date());
   const currentWindSpeed = windSpeed.find(item => {
     return parseInt(item.hour.replace(/[A-Z]/gi, '')) === currentHour;
   });
 
-  windSpeedEl.textContent = `Wind speed at ${
+  windSpeedEl.innerHTML = `Wind speed at ${
     currentWindSpeed.hour
-  }: ${parseFloat(currentWindSpeed.speed_mph.toFixed(1))} mph from ${
+  }: <b class="wind-speed__highlight">${parseFloat(
+    currentWindSpeed.speed_mph.toFixed(1)
+  )} mph</b> from <b class="wind-speed__highlight">${
     currentWindSpeed.direction_text
-  }`;
+  }</b>`;
 
   createWindSpeedChart(windSpeed);
 };
@@ -44,14 +46,16 @@ const toggleWindSpeedChart = () => {
 
   if (windSpeedChart.style.display === 'none') {
     windSpeedChart.style.display = 'block';
-    toggleBtn.textContent = 'Hide wind speed chart';
+    toggleBtn.innerHTML =
+      'Hide wind speed chart <i class="fa fa-caret-up" aria-hidden="true"></i>';
   } else {
     windSpeedChart.style.display = 'none';
-    toggleBtn.textContent = 'Show wind speed chart';
+    toggleBtn.innerHTML =
+      'Show wind speed chart <i class="fa fa-caret-down" aria-hidden="true"></i>';
   }
 };
 
-const toggleBtn = document.getElementById('toggle-wind-speed-chart');
+const toggleBtn = document.querySelector('.toggle-wind-speed-chart');
 toggleBtn.addEventListener('click', toggleWindSpeedChart);
 
 const addSpotForecast = async spotId => {

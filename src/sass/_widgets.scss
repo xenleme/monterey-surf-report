@@ -21,3 +21,34 @@
     color: $water-temp-highlight-color;
   }
 }
+
+.wind-speed {
+  &__text {
+    margin-bottom: .9rem;
+  }
+
+  &__highlight {
+    color: $wind-speed-highlight-color;
+  }
+}
+
+.toggle-wind-speed-chart {
+  background-color: $wind-speed-chart-btn-bg-color;
+  color: $wind-speed-chart-btn-text-color;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  padding: 1rem;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all .2s;
+
+  &__caret {
+    margin-left: .2rem;
+  }
+
+  &:hover {
+    background-color: lighten($wind-speed-chart-btn-bg-color, 10%);
+  }
+}
