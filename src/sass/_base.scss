@@ -27,6 +27,7 @@ body {
 
 // COMMON STYLES
 .container {
+  min-height: calc(100vh - 45px); // It makes footer stick to the bottom
   max-width: 122rem;
   margin: 0 auto;
   padding: 2rem 0;
