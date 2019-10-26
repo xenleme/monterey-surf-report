@@ -14,6 +14,9 @@
 
 <body>
   <div class="container">
+    <div class="loader">
+      <div class="loader__spinner"></div>
+    </div>
     <header class="header">
       <h1 class="heading-primary">Monterey Surf Report</h1>
       <span id="current-date" class="header__date"></span>
@@ -63,6 +66,12 @@
       from <a href="https://unsplash.com/">Unsplash</a></span>
   </footer>
 
+  <!-- <script>
+    window.addEventListener('load', () => {
+      const loader = document.querySelector('.loader');
+      loader.className += ' hidden';
+    })
+  </script> -->
   <script src="bundle.js"></script>
 </body>
 

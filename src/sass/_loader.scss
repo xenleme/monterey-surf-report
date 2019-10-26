@@ -1,0 +1,46 @@
+.loader {
+  background-color: $loader-bg-color;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 0.5rem;
+  z-index: 99;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__spinner {
+    width: 11rem;
+    height: 11rem;
+    margin: 0 auto;
+    border: 1.6rem solid $spinner-bg-color;
+    border-top: 1.6rem solid $spinner-roll-elem-color;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+  }
+}
+
+.loader.hidden {
+  animation: fadeOut 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
