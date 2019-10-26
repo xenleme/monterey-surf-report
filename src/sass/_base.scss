@@ -28,14 +28,18 @@ body {
 // COMMON STYLES
 .container {
   min-height: calc(100vh - 45px); // It makes footer stick to the bottom
-  max-width: 122rem;
+  max-width: 124rem;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem .5rem;
 }
 
 .content {
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
 }
 
 .heading-primary {

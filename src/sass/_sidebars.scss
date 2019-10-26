@@ -1,5 +1,22 @@
 .charts-sidebar {
-  width: 70rem;
+  width: 60%;
+
+  @media only screen and (max-width: $bp-largest) {
+    width: 65%;
+  }
+
+  @media only screen and (max-width: $bp-large) {
+    width: 70%;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    width: 65%;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    order: 2;
+    width: 100%;
+  }
 }
 
 .widgets-sidebar {
@@ -7,4 +24,19 @@
   flex-direction: column;
   max-width: 45rem;
   margin-top: 3rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    max-width: 25rem;
+  }
+
+  @media only screen and (max-width: $bp-large) {
+    max-width: 20rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    max-width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
 }
