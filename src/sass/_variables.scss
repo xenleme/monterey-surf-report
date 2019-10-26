@@ -1,21 +1,25 @@
+// BACKGROUND IMAGE
 $body-bg-image: url(../img/primary-bg.jpg);
+
+// FONT
+$font-primary: 'Roboto',
+sans-serif;
 
 // COLORS
 $body-bg-color: #ebebeb;
 $header-date-text-color: #121212;
+$heading-secondary-text-shadow: rgba(255, 255, 255, 0.8);
+$chart-bg-color: rgba(255, 255, 255, .8);
+
 $widget-bg-color: rgba(255, 255, 255, .8);
 $widget-border-top-color: rgba(28, 28, 28, .8);
 $widget-shadow-color: rgba(0, 0, 0, 0.1);
-$heading-secondary-text-shadow: rgba(255, 255, 255, 0.8);
+
 $water-temp-highlight-color: #5286ff;
 $wind-speed-highlight-color: #169c60;
 $wind-speed-chart-btn-bg-color: rgba(28, 28, 28, .8);
 $wind-speed-chart-btn-text-color: white;
-$chart-bg-color: rgba(255, 255, 255, .8);
+
 $footer-bg-color: rgba(255, 255, 255, .8);
 $footer-credits-link-bg-color: black;
 $footer-credits-link-text-color: white;
-
-// FONT VARIABLES
-$font-primary: 'Roboto',
-sans-serif;
