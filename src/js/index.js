@@ -27,7 +27,7 @@ const addWindSpeed = async () => {
 
   const currentHour = getAMPMHours(new Date());
   const currentWindSpeed = windSpeed.find(item => {
-    return parseInt(item.hour.replace(/[A-Z]/gi, '')) === currentHour;
+    return item.hour === currentHour;
   });
 
   windSpeedEl.innerHTML = `Wind speed at ${
