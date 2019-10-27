@@ -11,7 +11,7 @@ This project uses the [Spitcast API](http://www.spitcast.com/api/docs/) to fetch
 You can use [live version](http://monterey-surf-report.surge.sh) or clone the repository and run:
 
     npm install
-    npm run devserver
+    npm run dev-server
 
 This will start devserver and will launch the app in the development mode.
 
