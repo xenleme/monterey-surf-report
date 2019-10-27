@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="./public/bundle.css">
+  <title>Monterey Surf Report</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="loader">
+      <div class="loader__spinner"></div>
+    </div>
+    <header class="header">
+      <h1 class="heading-primary">Monterey Surf Report</h1>
+      <span id="current-date" class="header__date"></span>
+    </header>
+
+    <main class="content">
+      <aside class="charts-sidebar">
+        <div id="spots"></div>
+      </aside>
+
+      <aside class="widgets-sidebar">
+        <div class="available-spots widget">
+          <span class="available-spots__title">Avaliable spots in this location:</span>
+          <p class="available-spots__text"></p>
+        </div>
+
+        <div class="water-temp widget">
+          <p class="water-temp__text"></p>
+        </div>
+
+        <div class="wind-speed widget">
+          <p class="wind-speed__text"></p>
+          <button class="toggle-wind-speed-chart">
+            Show wind speed chart
+            <i class="fa fa-caret-down toggle-wind-speed-chart__caret" aria-hidden="true"></i>
+          </button>
+          <div>
+            <div id="wind-speed-chart" style="display: none;"></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <span class="footer__credits">The picture on the background made by <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family: Roboto, Helvetica,
+        sans-serif;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
+        href="https://unsplash.com/@wojtek?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+        target="_blank" rel="noopener noreferrer"
+        title="Download free do whatever you want high-resolution photos from Wojtek Witkowski"><span
+          style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+            style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+            viewBox="0 0 32 32">
+            <title>unsplash-logo</title>
+            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+          </svg></span><span style="display:inline-block;padding:2px 3px">Wojtek Witkowski</span></a> and taken
+      from <a href="https://unsplash.com/">Unsplash</a></span>
+  </footer>
+
+  <script src="./public/bundle.js"></script>
+</body>
+
+</html>
