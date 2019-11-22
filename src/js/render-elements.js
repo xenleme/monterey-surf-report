@@ -1,4 +1,9 @@
-import fetchData from './requests';
+import {
+  fetchSpots,
+  fetchWaterTemp,
+  fetchWindSpeed,
+  fetchSpotForecast
+} from './requests';
 import { createWindSpeedChart, createWaveHeightChart } from './charts';
 import { getAMPMHours } from './utilities';
 
@@ -28,28 +33,21 @@ toggleBtn.addEventListener('click', toggleWindSpeedChart);
 
 // Render all available spots on the location
 const renderSpots = async () => {
-  const spots = await fetchData(
-    'http://api.spitcast.com/api/county/spots/monterey/'
-  );
-  const spotNames = spots.map(spot => spot.spot_name);
+  const spots = await fetchSpots();
   const availableSpotsText = document.querySelector('.available-spots__text');
-  availableSpotsText.textContent = spotNames.join(' · ');
+  availableSpotsText.textContent = spots.join(' · ');
 };
 
 // Render water temperature indicators
 const renderWaterTemp = async () => {
-  const waterTemp = await fetchData(
-    'http://api.spitcast.com/api/county/water-temperature/monterey/'
-  );
+  const waterTemp = await fetchWaterTemp();
   const waterTempEl = document.querySelector('.water-temp__text');
   waterTempEl.innerHTML = `Water temperature: <b class="water-temp__highlight">${waterTemp.fahrenheit}°F / ${waterTemp.celcius}°C</b> <br>Recommended <b class="water-temp__highlight">${waterTemp.wetsuit}</b>`;
 };
 
 // Render  wind speed indicators
 const renderWindSpeed = async () => {
-  const windSpeed = await fetchData(
-    'http://api.spitcast.com/api/county/wind/monterey/'
-  );
+  const windSpeed = await fetchWindSpeed();
   const windSpeedEl = document.querySelector('.wind-speed__text');
 
   const currentHour = getAMPMHours(new Date());
@@ -70,9 +68,7 @@ const renderWindSpeed = async () => {
 
 // Render surf forecast for each available spots
 const renderSpotForecast = async spotId => {
-  const spotForecast = await fetchData(
-    `http://api.spitcast.com/api/spot/forecast/${spotId}/`
-  );
+  const spotForecast = await fetchSpotForecast(spotId);
   const spotName = spotForecast[0].spot_name;
   const spotNameEl = document.createElement('h3');
   const currentDate = spotForecast[0].date;
