@@ -1,6 +1,6 @@
 # Monterey surf report
 
-![preview](preview.png)
+![preview](preview-monterey-surf.png)
 
 Surf forecast app written using pure JS that provides the information about surf conditions on the most popular spots in [Monterey county](https://en.wikipedia.org/wiki/Monterey_County,_California).
 
