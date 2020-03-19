@@ -7,4 +7,9 @@ const getAMPMHours = date => {
   return hours + ampm;
 };
 
-export { getAMPMHours };
+const errorText = (error, element) => {
+  element.textContent = `${error.message} - Something wrong with concetion to API`;
+  element.style.color = 'red';
+};
+
+export { getAMPMHours, errorText };
