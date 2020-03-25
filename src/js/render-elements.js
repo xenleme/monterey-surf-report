@@ -38,7 +38,7 @@ const renderSpots = async () => {
     const spots = await fetchSpots();
     availableSpotsText.textContent = spots.join(' · ');
   } catch (error) {
-    errorText(error, availableSpotsText);
+    errorText(error, availableSpotsText, 'avaliable spots');
   }
 };
 
@@ -49,7 +49,11 @@ const renderWaterTemp = async () => {
     const waterTemp = await fetchWaterTemp();
     waterTempEl.innerHTML = `Water temperature: <b class="water-temp__highlight">${waterTemp.fahrenheit}°F / ${waterTemp.celcius}°C</b> <br>Recommended <b class="water-temp__highlight">${waterTemp.wetsuit}</b>`;
   } catch (error) {
-    errorText(error, waterTempEl);
+    errorText(
+      error,
+      waterTempEl,
+      'water temperature and wetsuit recommendations'
+    );
   }
 };
 
@@ -74,23 +78,28 @@ const renderWindSpeed = async () => {
 
     createWindSpeedChart(windSpeed);
   } catch (error) {
-    errorText(error, windSpeedEl);
+    errorText(error, windSpeedEl, 'wind speed');
   }
 };
 
 // Render surf forecast for each available spots
 const renderSpotForecast = async spotId => {
-  const spotForecast = await fetchSpotForecast(spotId);
-  const spotName = spotForecast[0].spot_name;
-  const spotNameEl = document.createElement('h3');
-  const currentDate = spotForecast[0].date;
-  const currentDateEl = document.querySelector('#current-date');
+  try {
+    const spotForecast = await fetchSpotForecast(spotId);
+    const spotName = spotForecast[0].spot_name;
+    const spotNameEl = document.createElement('h3');
+    const currentDate = spotForecast[0].date;
+    const currentDateEl = document.querySelector('#current-date');
 
-  spotNameEl.textContent = spotName;
-  spotNameEl.className = 'heading-secondary';
-  currentDateEl.textContent = currentDate;
+    spotNameEl.textContent = spotName;
+    spotNameEl.className = 'heading-secondary';
+    currentDateEl.textContent = currentDate;
 
-  createWaveHeightChart(spotForecast, spotNameEl);
+    createWaveHeightChart(spotForecast, spotNameEl);
+  } catch (error) {
+    const spotsEl = document.querySelector('#spots');
+    errorText(error, spotsEl, 'avaliable charts');
+  }
 };
 
 export { renderSpots, renderWaterTemp, renderWindSpeed, renderSpotForecast };
