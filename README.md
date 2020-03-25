@@ -2,6 +2,8 @@
 
 ![preview](preview-monterey-surf.png)
 
+## Need to find a new API for fetching data - Spitcast API does not work now.
+
 Surf forecast app written using pure JS that provides the information about surf conditions on the most popular spots in [Monterey county](https://en.wikipedia.org/wiki/Monterey_County,_California).
 
 This project uses the [Spitcast API](http://www.spitcast.com/api/docs/) to fetch data and [Chart.js](https://www.chartjs.org/) to represent this data.
