@@ -79,6 +79,8 @@ const renderWindSpeed = async () => {
     createWindSpeedChart(windSpeed);
   } catch (error) {
     errorText(error, windSpeedEl, 'wind speed');
+    toggleBtn.innerHTML =
+      'Wind speed chart is not available <span style="font-size:2rem;vertical-align:sub;margin-left: .3rem">😕</span>';
   }
 };
 
