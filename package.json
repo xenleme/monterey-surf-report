@@ -18,7 +18,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "file-loader": "^4.3.0",
